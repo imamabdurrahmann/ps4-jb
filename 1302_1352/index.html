@@ -5,18 +5,41 @@
     <title>13.02-13.52 · PS4 Exploit</title>
     <style>
         body {
-            background: #ffffff;
-            color: #111111;
-            font: 15px/1.5 monospace;
-            margin: 20px;
+            background: #070709;
+            color: #e4e4e7;
+            font: 14px/1.6 'Consolas', 'Menlo', monospace;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .header-title {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 20px;
         }
         #console {
-            font-family: monospace;
-            white-space: pre;
+            font-family: 'Consolas', 'Menlo', monospace;
+            white-space: pre-wrap;
+            background: rgba(16, 16, 20, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            word-break: break-all;
         }
-        .ok   { color: #1a7a1a; }
-        .bad  { color: #cc0000; }
-        .warn { color: #aa6600; }
+        .ok   { color: #ffffff; font-weight: bold; }
+        .bad  { color: #ff7777; }
+        .warn { color: #d4d4d8; }
     </style>
     <script>
     if (window.applicationCache && window.applicationCache.status == 0) {
@@ -25,8 +48,7 @@
     </script>
 </head>
 <body>
-    13.02-13.52 · PS4 Exploit<br>
-    <br>
+    <div class="header-title">13.02 - 13.52 · PS4 Exploit</div>
     <pre id="console"></pre>
 </body>
 <script>

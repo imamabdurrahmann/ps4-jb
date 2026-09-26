@@ -21,24 +21,36 @@
 		text-align: center;
       }
       .main-title {
-		background: linear-gradient(45deg, #ff00aa, #00ffff, #ff00ff, #00ff9d);
-		background-size: 300% 300%;
+		font-family: 'Cinzel', Georgia, serif;
+		letter-spacing: 4px;
+		text-transform: uppercase;
+		font-size: 26px;
+		background: linear-gradient(135deg, #ffffff 0%, #e2e2e5 25%, #a1a1aa 50%, #ffffff 75%, #d1d1d6 100%);
+		background-size: 200% auto;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		animation: gradientFlow 8s ease infinite;
-		text-shadow: 0 0 30px rgba(255, 0, 170, 0.7);
+		animation: gradientFlow 6s ease infinite;
+		text-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
       }
       @keyframes gradientFlow {
-		0% {background-position: 0% 50%;}
-		50% {background-position: 100% 50%;}
-		100% {background-position: 0% 50%;}
+		0% {background-position: 0% center;}
+		50% {background-position: 100% center;}
+		100% {background-position: 0% center;}
       }
       #console {
-        font-family: monospace;
-        color: #ffffff;
-        padding: 12px;
-        font-size: 18px;
+        font-family: 'Consolas', 'Menlo', monospace;
+        color: #f4f4f5;
+        padding: 18px 22px;
+        font-size: 15px;
+        line-height: 1.6;
         text-align: left;
+        background: rgba(16, 16, 20, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        max-width: 720px;
+        width: 90%;
+        margin: 20px auto;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
       }
     </style>
     <script>

@@ -3,54 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imam x Playbox PS4 Universal Gateway</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #070709;
+            background-image: 
+                radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.06) 0%, transparent 55%),
+                radial-gradient(circle at 50% 90%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+                linear-gradient(180deg, #0d0d10 0%, #050506 100%);
+            background-attachment: fixed;
+            color: #ffffff;
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #121212;
-            color: #ffffff;
-        }
-        .card {
-            background-color: #1e1e1e;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             text-align: center;
-            max-width: 450px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient luxury vignette */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.7) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
             width: 90%;
+            max-width: 580px;
+            margin: 20px auto;
+            padding: 40px 32px;
+            background: rgba(16, 16, 20, 0.72);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 
+                        0 0 0 1px rgba(255, 255, 255, 0.03),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
         }
+
+        /* Header typography */
+        .main-title {
+            font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin: 0 0 10px;
+        }
+
+        .name-imam {
+            display: block;
+            font-family: 'Cinzel', Georgia, serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 7px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e2e5 25%, #a1a1aa 50%, #ffffff 75%, #d1d1d6 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: silverShine 6s ease-in-out infinite;
+            filter: drop-shadow(0 4px 18px rgba(255, 255, 255, 0.22));
+            margin-bottom: 8px;
+        }
+
+        @keyframes silverShine {
+            0% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+            100% { background-position: 0% center; }
+        }
+
+        .ps4-title {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: 4px;
+            padding: 4px 18px;
+            margin: 8px auto;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .subtitle {
+            font-size: 0.8rem;
+            color: #8e8e93;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin: 10px 0 14px;
+            font-weight: 500;
+        }
+
+        .version-badge {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #f4f4f5;
+            padding: 6px 20px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+
+        hr.separator {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            margin: 20px auto 28px;
+            width: 60%;
+        }
+
+        /* Status & Result Banner */
+        .status-container {
+            margin: 20px auto;
+        }
+
         .status {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-top: 1rem;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            padding: 16px 28px;
+            width: 100%;
+            max-width: 480px;
+            border-radius: 10px;
+            transition: all 0.35s ease;
+            box-sizing: border-box;
         }
-        .info { color: #0088ff; }
-        .error { color: #ff4d4d; }
+
+        .status.info {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.08);
+            animation: elegantPulse 2.4s ease-in-out infinite;
+        }
+
+        .status.error {
+            color: #ff8888;
+            background: rgba(255, 0, 0, 0.06);
+            border: 1px solid rgba(255, 80, 80, 0.45);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        @keyframes elegantPulse {
+            0%, 100% {
+                border-color: rgba(255, 255, 255, 0.18);
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+            }
+            50% {
+                border-color: rgba(255, 255, 255, 0.55);
+                box-shadow: 0 0 30px rgba(255, 255, 255, 0.18);
+            }
+        }
+
+        /* Diagnostic User Agent Box */
         .ua-box {
-            margin-top: 1.5rem;
-            font-size: 0.85rem;
-            color: #aaa;
+            margin-top: 25px;
+            padding: 14px 18px;
+            font-family: 'Consolas', 'Menlo', 'Monaco', monospace;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            color: #8e8e93;
+            background: rgba(0, 0, 0, 0.45);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             word-break: break-all;
-            background: #111;
-            padding: 12px;
-            border-radius: 6px;
-            border: 1px solid #333;
             text-align: left;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .ua-box strong {
+            color: #d1d1d6;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 30px;
+        }
+
+        .credit {
+            font-size: 0.95rem;
+            color: #a1a1aa;
+            margin-bottom: 6px;
+            letter-spacing: 1.5px;
+        }
+
+        .credit-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .credit-link:hover {
+            border-bottom-color: #ffffff;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+
+        .thanks {
+            font-size: 0.75rem;
+            color: #71717a;
+            margin-top: 8px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 28px 18px;
+            }
+            .name-imam {
+                font-size: 2.1rem;
+                letter-spacing: 5px;
+            }
+            .status {
+                font-size: 0.95rem;
+                padding: 14px 18px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <div id="result" class="status info">Cek firmware...</div>
+    <div class="container">
+        <header>
+            <h1 class="main-title">
+                <span class="name-imam">Imam x Playbox</span>
+                <span class="ps4-title">PS4</span>
+            </h1>
+            <div class="subtitle">Universal Firmware Gateway</div>
+            <div class="version-badge">FW 5.05 - 13.52</div>
+        </header>
+
+        <hr class="separator">
+
+        <div class="status-container">
+            <div id="result" class="status info">Mendeteksi Firmware...</div>
+        </div>
+
         <div id="user-agent" class="ua-box"></div>
+
+        <footer>
+            <p class="credit">Designed by <a href="#" class="credit-link">Imam x Playbox</a></p>
+            <p class="thanks">Multi-Firmware Auto Router</p>
+        </footer>
     </div>
 
     <script>
+        // ======== Logika Deteksi & Redirect Asli (100% Tidak Diubah) ========
         function processDevice() {
             const userAgent = navigator.userAgent;
             const resultElement = document.getElementById('result');
@@ -68,25 +306,25 @@
                     resultElement.innerText = `Terdeteksi PS4 (FW ${firmware.toFixed(2)})`;
 
                     if (firmware >= 5.00 && firmware <= 9.60) {
-                        resultElement.innerText += "";
+                        resultElement.innerText += " - Membuka Exploit...";
                         setTimeout(() => {
                             window.location.href = "505_960/index.html";
                         }, 1000);
                     }
                     else if (firmware >= 10.00 && firmware <= 11.02) {
-                        resultElement.innerText += "";
+                        resultElement.innerText += " - Membuka Exploit...";
                         setTimeout(() => {
                             window.location.href = "1000_1102/index.html";
                         }, 1000);
                     }
                     else if (firmware >= 11.50 && firmware <= 13.00) {
-                        resultElement.innerText += "";
+                        resultElement.innerText += " - Membuka Exploit...";
                         setTimeout(() => {
                             window.location.href = "1150-1300/index.html";
                         }, 1000);
                     }
                     else if (firmware >= 13.02 && firmware <= 13.52) {
-                        resultElement.innerText += "";
+                        resultElement.innerText += " - Membuka Exploit...";
                         setTimeout(() => {
                             window.location.href = "1302_1352/index.html";
                         }, 1000);
@@ -97,7 +335,7 @@
                     }
                 } else {
                     resultElement.className = "status error";
-                    resultElement.innerText = "Terdeteksi PS4, tetapi gagal membaca versi Firmware secara spesifik.";
+                    resultElement.innerText = "Terdeteksi PS4, tetapi gagal membaca versi Firmware.";
                 }
             } else {
                 resultElement.className = "status error";
